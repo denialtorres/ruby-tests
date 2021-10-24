@@ -19,13 +19,10 @@ RSpec.describe Card do
   it 'has a suit' do
     expect(card.suit).to eq('Spades')
   end
-end
 
-# Rspec.describe "math calculations" do
-#   it 'does basic math' do
-#     expect(1+1).to eq(2)
-#     expect(1*1).to eq(1)
-#     expect(1/1).to eq(1)
-#     expect(1-1).to eq(0)
-#   end
-# end
+  it 'has a custom error message' do
+    card.suit = "Nonsense"
+    comparison = 'Spades'
+    expect(card.suit).to eq(comparison), "Hey. I expected #{comparison} but I got #{card.suit} instead"
+  end
+end
